@@ -18,6 +18,7 @@ import styles from './WebsiteEditForm.module.css';
 const initialValues = {
   name: '',
   domain: '',
+  api_key: '',
   owner: '',
   public: false,
 };
@@ -38,7 +39,6 @@ const validate = ({ name, domain }) => {
 };
 
 const OwnerDropDown = ({ user, accounts }) => {
-  console.info(styles);
   const { setFieldValue, values } = useFormikContext();
 
   useEffect(() => {
@@ -113,15 +113,17 @@ export default function WebsiteEditForm({ values, onSave, onClose }) {
                 <FormattedMessage id="label.domain" defaultMessage="Domain" />
               </label>
               <div>
-                <Field
-                  name="domain"
-                  type="text"
-                  placeholder="example.com"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  autocorrect="off"
-                />
+                <Field name="domain" type="text" placeholder="example.com" />
                 <FormError name="domain" />
+              </div>
+            </FormRow>
+            <FormRow>
+              <label htmlFor="api_key">
+                <FormattedMessage id="label.api_key" defaultMessage="API" />
+              </label>
+              <div>
+                <Field name="api_key" type="text" placeholder="" />
+                <FormError name="api_key" />
               </div>
             </FormRow>
             <OwnerDropDown accounts={accounts} user={user} />

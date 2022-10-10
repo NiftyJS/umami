@@ -131,6 +131,12 @@
       "value": "Domain"
     }
   ],
+  "label.api_key": [
+    {
+      "type": 0,
+      "value": "API Key"
+    }
+  ],
   "label.edit": [
     {
       "type": 0,

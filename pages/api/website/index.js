@@ -10,7 +10,7 @@ export default async (req, res) => {
   const { website_id, enable_share_url } = req.body;
 
   if (req.method === 'POST') {
-    const { name, domain, owner } = req.body;
+    const { name, domain, api_key, owner } = req.body;
     const website_owner = parseInt(owner);
 
     if (website_id) {
@@ -28,7 +28,7 @@ export default async (req, res) => {
         share_id = null;
       }
 
-      await updateWebsite(website_id, { name, domain, share_id, user_id: website_owner });
+      await updateWebsite(website_id, { name, domain, api_key, share_id, user_id: website_owner });
 
       return ok(res);
     } else {
